@@ -5,9 +5,9 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
 
-var dustbin;
-var ground;
-var paper;
+var dustbin1;
+var ground1;
+var paper1;
 function preload()
 {
 	
@@ -22,9 +22,9 @@ function setup() {
 
   //Create the Bodies Here.
   
-  dustbin=new Dustbin(1200,650);
-	paper=new Paper(200,450,40);
-	ground=new Ground(width/2,670,width,20);
+  dustbin1=new Dustbin(1200,650);
+	paper1=new Paper(200,450,40);
+	ground1=new Ground(width/2,670,width,20);
 
  
 
@@ -38,10 +38,17 @@ function draw() {
   background(0);
   Engine.update(engine);
 
-  dustbin.display();
-  ground.display();
-  paper.display();
+  dustbin1.display();
+  ground1.display();
+  paper1.display();
 }
 
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+
+    Matter.Body.applyForce(paper1.body,paper1.body.position,{x:85,y:-85});
+  
+  }
+}
 
 
